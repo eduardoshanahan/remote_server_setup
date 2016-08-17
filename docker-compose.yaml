@@ -1,0 +1,7 @@
+version: "2"
+services:
+  deployment:
+    image: eduardoshanahan/fabric_boto
+    volumes:
+      - ./scripts:/scripts
+    command: ["/bin/sh"]
