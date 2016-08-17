@@ -4,4 +4,4 @@ services:
     image: eduardoshanahan/fabric_boto
     volumes:
       - ./scripts:/scripts
-    command: ["/bin/sh"]
+    entrypoint: ["/bin/sh"]
