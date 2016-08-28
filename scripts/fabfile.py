@@ -7,9 +7,9 @@ import os
 env.colorize_errors = True
 
 @task
-def type():
+def test():
     '''
-    Get details about the operating system
+    A small test to check if everything is working, it will try to get details about the operating system
     '''
     run('uname -a')
 
@@ -78,7 +78,7 @@ def restart_ssh():
     sudo('service ssh restart')
 
 @task
-def setup_docker():
+def setup_docker_with_deploy():
     """
     Install docker and setup a 'deploy' user
     """
