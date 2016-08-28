@@ -19,7 +19,7 @@ def prepare_new_server():
     Get a server and make it ready to be used in production
     '''
     username = os.environ['REMOTE_USERNAME']
-    key_path = os.environ['REMOTE_PUBLIC_KEY_PATH'] 
+    key_path = os.environ['REMOTE_PUBLIC_KEY_PATH']
     setup_key_access(username, key_path)
     setup_docker()
 
@@ -79,6 +79,9 @@ def restart_ssh():
 
 @task
 def setup_docker():
+    """
+    Install docker and setup a 'deploy' user
+    """
     install_docker()
     docker_user = 'deploy'
     create_user(docker_user)

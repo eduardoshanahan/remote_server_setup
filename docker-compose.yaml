@@ -1,7 +1,7 @@
 version: "2"
 services:
   deployment:
-    image: eduardoshanahan/fabric_boto
+    image: eduardoshanahan/fabric_boto:v0.2.2
     volumes:
       - ./scripts:/scripts
     working_dir: /scripts
