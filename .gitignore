@@ -93,4 +93,4 @@ ENV/
 .ropeproject
 
 # Setup variables
-setup_variables.env
+.env
