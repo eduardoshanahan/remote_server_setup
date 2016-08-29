@@ -1,0 +1,8 @@
+version: "2"
+services:
+  execute:
+    environment:
+      - REMOTE_HOST=$REMOTE_HOST
+      - REMOTE_USERNAME=$REMOTE_USERNAME
+      - REMOTE_=$REMOTE_ROOT_PASSWORD
+    entrypoint: fab key_remote_test

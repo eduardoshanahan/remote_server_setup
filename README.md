@@ -39,6 +39,14 @@ docker-compose -f docker-compose.yml -f docker-compose.root_remote_test.yml run 
 ```
 will try to connect to the remote server and get the OS name providing a root username and password.
 
+## Running a remote test using a key
+
+Running
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.key_remote_test.yml run --rm execute
+```
+will try to connect to the remote server and get the OS name providing an authentication key.
+
 ## Automated deployment
 
 ```bash

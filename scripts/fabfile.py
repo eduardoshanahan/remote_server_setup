@@ -24,9 +24,15 @@ def root_remote_test():
     '''
     env.user = os.getenv('REMOTE_ROOT_USERNAME')
     env.password = os.getenv('REMOTE_ROOT_PASSWORD')
-    print('Fabric has env.hosts with the value', env.host)
-    print('Fabric has env.user with the value', env.user)
-    print('Fabric has env.password with the value', env.password)
+    run('uname -a')
+
+@task
+def key_remote_test():
+    '''
+    A small test to check if everything is working, it will try to get details about the operating system
+    '''
+    env.user = os.getenv('REMOTE_USERNAME')
+    env.key_filename = os.getenv('REMOTE_PUBLIC_KEY_PATH')
     run('uname -a')
 
 @task
