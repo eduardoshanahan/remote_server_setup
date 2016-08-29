@@ -10,6 +10,7 @@ from fabric.contrib.files import sed
 import os
 
 env.colorize_errors = True
+env.hosts=[os.getenv('REMOTE_HOST')]
 
 @task
 def local_test():
@@ -17,10 +18,15 @@ def local_test():
     print('Fabric has REMOTE_USERNAME with the value', username)
 
 @task
-def test():
+def root_remote_test():
     '''
     A small test to check if everything is working, it will try to get details about the operating system
     '''
+    env.user = os.getenv('REMOTE_ROOT_USERNAME')
+    env.password = os.getenv('REMOTE_ROOT_PASSWORD')
+    print('Fabric has env.hosts with the value', env.host)
+    print('Fabric has env.user with the value', env.user)
+    print('Fabric has env.password with the value', env.password)
     run('uname -a')
 
 @task

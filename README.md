@@ -8,7 +8,7 @@ I am using it against OVH, but it should work in AWS EC2 too.
 
 If you run in your terminal
 ```bash
-docker-compose -f docker-compose.yml -f docker-compose.it.yml run --rm execute
+docker-compose -f docker-compose.yml -f docker-compose.interactive.yml run --rm execute
 ```
 you will be left in a session where you can get a list of the fabric commands with a
 ```bash
@@ -21,7 +21,7 @@ Running
 ```bash
 docker-compose run --rm execute
 ```
-Should print the value in REMOTE_USERNAME.
+Should print the value contained in the environment variable REMOTE_USERNAME.
 
 ## Running a local test
 
@@ -31,13 +31,13 @@ docker-compose -f docker-compose.yml -f docker-compose.local_test.yml run --rm e
 ```
 will print the REMOTE_USERNAME environment variable received inside the container.
 
-## Running a remote test
+## Running a remote test with root username and password
 
 Running
 ```bash
-docker-compose -f docker-compose.yml -f docker-compose.remote_test.yml run --rm execute
+docker-compose -f docker-compose.yml -f docker-compose.root_remote_test.yml run --rm execute
 ```
-will try to connect to the remote server and get the OS name.
+will try to connect to the remote server and get the OS name providing a root username and password.
 
 ## Automated deployment
 
