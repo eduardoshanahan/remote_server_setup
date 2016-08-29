@@ -1,0 +1,6 @@
+version: "2"
+services:
+  execute:
+    environment:
+      - REMOTE_USERNAME=$REMOTE_USERNAME
+    entrypoint: fab local_test

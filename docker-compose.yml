@@ -1,9 +1,8 @@
 version: "2"
 services:
-  deployment:
+  execute:
     image: eduardoshanahan/fabric_boto:latest
     volumes:
       - ./scripts:/scripts
     working_dir: /scripts
-    entrypoint:
-      - /bin/sh
+    entrypoint: echo REMOTE_USERNAME is $REMOTE_USERNAME in your Docker image

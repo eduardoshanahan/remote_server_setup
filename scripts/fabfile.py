@@ -1,10 +1,20 @@
 from fabric.api import *
 from fabric.operations import reboot
-from fabric.contrib.files import append, contains, exists, uncomment, comment, sed
+from fabric.contrib.files import append
+from fabric.contrib.files import contains
+from fabric.contrib.files import exists
+from fabric.contrib.files import uncomment
+from fabric.contrib.files import comment
+from fabric.contrib.files import sed
 
 import os
 
 env.colorize_errors = True
+
+@task
+def local_test():
+    username = os.getenv('REMOTE_USERNAME')
+    print('Fabric has REMOTE_USERNAME with the value', username)
 
 @task
 def test():
