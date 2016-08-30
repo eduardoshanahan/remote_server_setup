@@ -39,6 +39,14 @@ docker-compose -f docker-compose.yml -f docker-compose.root_remote_test.yml run 
 ```
 will try to connect to the remote server and get the OS name providing a root username and password.
 
+## Prepare a new server with key authentication and Docker providing root username and password
+
+Running
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.prepare_new_server.yml run --rm execute
+```
+will try to connect to the remote server providing a root username and password, setting up an ssh key authentication and installing Docker.
+
 ## Running a remote test using a key
 
 Running

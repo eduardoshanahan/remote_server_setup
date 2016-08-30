@@ -1,0 +1,8 @@
+version: "2"
+services:
+  execute:
+    environment:
+      - REMOTE_HOST=$REMOTE_HOST
+      - REMOTE_ROOT_USERNAME=$REMOTE_ROOT_USERNAME
+      - REMOTE_PUBLIC_KEY_PATH=$REMOTE_PUBLIC_KEY_PATH
+    entrypoint: fab prepare_new_server

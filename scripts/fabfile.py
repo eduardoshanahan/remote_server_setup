@@ -43,7 +43,7 @@ def prepare_new_server():
     username = os.environ['REMOTE_USERNAME']
     key_path = os.environ['REMOTE_PUBLIC_KEY_PATH']
     setup_key_access(username, key_path)
-    setup_docker()
+    setup_docker_with_deploy_user()
 
 def setup_key_access(username, key_path):
     '''
@@ -100,7 +100,7 @@ def restart_ssh():
     sudo('service ssh restart')
 
 @task
-def setup_docker_with_deploy():
+def setup_docker_with_deploy_user():
     """
     Install docker and setup a 'deploy' user
     """
