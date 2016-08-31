@@ -36,10 +36,10 @@ def key_remote_test():
     '''
     print ('Key remote test')
     env.user = os.getenv('REMOTE_USERNAME')
-    public_key_filename = os.getenv('PUBLIC_KEY_FILENAME')
+    private_key_filename = os.getenv('PRIVATE_KEY_FILENAME')
     docker_ssh_keys_path = os.getenv('DOCKER_SSH_KEYS_PATH')
-    print (env.user, public_key_filename, docker_ssh_keys_path)
-    env.key_filename=os.path.join('/',docker_ssh_keys_path,public_key_filename)
+    print (env.user, private_key_filename, docker_ssh_keys_path)
+    env.key_filename=os.path.join('/',docker_ssh_keys_path,private_key_filename)
     print (env.key_filename)
     run('uname -a')
 
