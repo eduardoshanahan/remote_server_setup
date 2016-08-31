@@ -61,6 +61,14 @@ will try to connect to the remote server and get the OS name providing an authen
 fab -u your_remote_root_username -p your_remote_password -H your_remote_host_address prepare_new_server
 ```
 
+## Managing your environment variables
+
+For this scripts to work, you need to have a .env file located in the same directory as your docker-compose files.
+
+A demo with the variables required is available as ```demo.env```. You can make a copy naming it ```.env``` and replacing the values with your own details.
+
+Given the content of that file is private, and allows full control of your remote server, it is included in the .gitignore file, to keep it out of version control. At some point I will rework this area to use [Vault](https://www.vaultproject.io/) or something similar.
+
 ## Development
 
 If you want to make some changes and version it, [bumpversion](https://pypi.python.org/pypi/bumpversion) is configured
