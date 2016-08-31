@@ -4,5 +4,6 @@ services:
     image: eduardoshanahan/fabric_boto:latest
     volumes:
       - ./scripts:/scripts
+      - $LOCAL_PUBLIC_KEY_PATH:/$DOCKER_SSH_KEYS_PATH
     working_dir: /scripts
     entrypoint: echo REMOTE_USERNAME is $REMOTE_USERNAME in your Docker image

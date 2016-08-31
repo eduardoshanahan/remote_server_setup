@@ -4,5 +4,6 @@ services:
     environment:
       - REMOTE_HOST=$REMOTE_HOST
       - REMOTE_ROOT_USERNAME=$REMOTE_ROOT_USERNAME
+      - REMOTE_ROOT_PASSWORD=$REMOTE_ROOT_PASSWORD
       - REMOTE_PUBLIC_KEY_PATH=$REMOTE_PUBLIC_KEY_PATH
     entrypoint: fab root_remote_test
