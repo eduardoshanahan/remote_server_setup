@@ -2,6 +2,7 @@ version: "2"
 services:
   execute:
     image: eduardoshanahan/fabric_boto:latest
+    container_name: remote-server-setup  
     volumes:
       - ./scripts:/scripts
       - $LOCAL_PUBLIC_KEY_PATH:/$DOCKER_SSH_KEYS_PATH
