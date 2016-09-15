@@ -8,7 +8,7 @@ I am using it against OVH, but it should work in AWS EC2 too.
 
 If you run in your terminal
 ```bash
-docker-compose -f docker-compose.yml -f docker-compose.interactive.yml run --rm execute
+docker-compose -f docker-compose.yml -f interactive.yml run --rm execute
 ```
 you will be left in a session where you can get a list of the fabric commands with a
 ```bash
@@ -27,7 +27,7 @@ Should print the value contained in the environment variable REMOTE_USERNAME.
 
 Running
 ```bash
-docker-compose -f docker-compose.yml -f docker-compose.local_test.yml run --rm execute
+docker-compose -f docker-compose.yml -f local_test.yml run --rm execute
 ```
 will print the REMOTE_USERNAME environment variable received inside the container.
 
@@ -35,7 +35,7 @@ will print the REMOTE_USERNAME environment variable received inside the containe
 
 Running
 ```bash
-docker-compose -f docker-compose.yml -f docker-compose.root_remote_test.yml run --rm execute
+docker-compose -f docker-compose.yml -f root_remote_test.yml run --rm execute
 ```
 will try to connect to the remote server and get the OS name providing a root username and password.
 
@@ -43,7 +43,7 @@ will try to connect to the remote server and get the OS name providing a root us
 
 Running
 ```bash
-docker-compose -f docker-compose.yml -f docker-compose.prepare_new_server.yml run --rm execute
+docker-compose -f docker-compose.yml -f prepare_new_server.yml run --rm execute
 ```
 will try to connect to the remote server providing a root username and password, setting up an ssh key authentication and installing Docker.
 
@@ -51,7 +51,7 @@ will try to connect to the remote server providing a root username and password,
 
 Running
 ```bash
-docker-compose -f docker-compose.yml -f docker-compose.key_remote_test.yml run --rm execute
+docker-compose -f docker-compose.yml -f key_remote_test.yml run --rm execute
 ```
 will try to connect to the remote server and get the OS name providing an authentication key.
 

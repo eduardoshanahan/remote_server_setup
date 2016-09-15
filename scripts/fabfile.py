@@ -5,9 +5,19 @@ from fabric.contrib.files import append
 from fabric.contrib.files import contains
 from fabric.contrib.files import uncomment
 from fabric.contrib.files import sed
+from fabric.context_managers import shell_env
 
 env.colorize_errors = True
 env.hosts = [os.getenv('REMOTE_HOST')]
+
+
+@task
+def update_remote_host():
+    """
+    Update packages in the remote host
+    """
+    sudo('apt-get update')
+    sudo('apt-get upgrade -y')
 
 
 @task
@@ -31,19 +41,26 @@ def root_remote_test():
     env.password = os.getenv('REMOTE_ROOT_PASSWORD')
     run('uname -a')
 
-
 @task
-def key_remote_test():
+def use_keys():
     """
-    A small test to check if you can access your remote server using a key, it will try to get details about the operating system
+    Setup key access to the remote server
     """
-    print ('Key remote test')
+    print ('Use keys')
     env.user = os.getenv('REMOTE_USERNAME')
     private_key_filename = os.getenv('PRIVATE_KEY_FILENAME')
     docker_ssh_keys_path = os.getenv('DOCKER_SSH_KEYS_PATH')
     print (env.user, private_key_filename, docker_ssh_keys_path)
     env.key_filename=os.path.join('/',docker_ssh_keys_path,private_key_filename)
     print (env.key_filename)
+
+@task
+def key_remote_test():
+    """
+    A small test to check if you can access your remote server using a key, it will try to get details about the operating system
+    """
+    use_keys()
+    print('Key remote test')
     run('uname -a')
 
 
@@ -156,6 +173,17 @@ def setup_docker_with_deploy_user():
 def install_docker():
     print ('Install Docker')
     sudo('curl -sSL https://get.docker.com/ | sh')
+
+@task
+def setup_docker_compose():
+    """
+    Install Docker Compose
+    """
+    print('Install Docker-Compose')
+    docker_compose_version = '1.8.0'
+    sudo('sh -c "curl -L https://github.com/docker/compose/releases/download/{0}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"'.format(docker_compose_version))
+    sudo('chmod +x /usr/local/bin/docker-compose')
+    sudo('sh -c "curl -L https://raw.githubusercontent.com/docker/compose/{0}/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose"'.format(docker_compose_version))
 
 
 def setup_docker_user(username):
